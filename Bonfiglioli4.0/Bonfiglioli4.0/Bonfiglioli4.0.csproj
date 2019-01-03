@@ -110,6 +110,7 @@
     <Compile Include="Utilities\DBMethods.cs" />
     <Compile Include="Utilities\DynamicComparer.cs" />
     <Compile Include="Utilities\ErrComPlcS7.cs" />
+    <Compile Include="Utilities\FormSerialisor.cs" />
     <Compile Include="Utilities\ICloseable.cs" />
     <Compile Include="Utilities\InLavoroColorConverter.cs" />
     <Compile Include="Utilities\IntColorConverter.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\StartupMode.cs" />
     <Compile Include="Utilities\StaticForBinding.cs" />
+    <Compile Include="Utilities\TreeHelper.cs" />
     <Compile Include="ViewModel\Base\ViewModelBase.cs" />
     <Compile Include="ViewModel\Bonfiglioli4p0MWVM.cs" />
     <Compile Include="ViewModel\Commands\cmdChangeCassFinito.cs" />
@@ -185,7 +187,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\" />
-    <Folder Include="MyRes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\Setting1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\Reset Data1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\CreaFileDati.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\SendFileDati.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
