@@ -1,6 +1,6 @@
 ﻿//using qFluid.Entity;
-using qFluid.View;
-using qFluid.ViewModel;
+using Bonfiglioli4p0.View;
+using Bonfiglioli4p0.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

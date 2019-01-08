@@ -9,10 +9,10 @@ namespace Utilities
 {
     public  class KeyLogger
     {
-        Bonfiglioli4p0MWVM _parent = new Bonfiglioli4p0MWVM();
+        Bonfiglioli4p0MainMVVM _parent = new Bonfiglioli4p0MainMVVM();
 
         #region CONSTRUCTOR
-        public KeyLogger(Bonfiglioli4p0MWVM parent)
+        public KeyLogger(Bonfiglioli4p0MainMVVM parent)
         {
             //this._parent = new qFluidMW();
             this._parent = parent;

@@ -17,12 +17,29 @@ namespace Bonfiglioli4p0.DialogControls
     /// Interaction logic for OpenFileTest.xaml
     /// </summary>
 
-    public partial class OpenFileTest : System.Windows.Window
+    public partial class OpenFile : System.Windows.Window
     {
 
-        public OpenFileTest()
+        public OpenFile()
         {
             InitializeComponent();
+
+            OpenFileDialog myDialog = new OpenFileDialog();
+
+            //myDialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF" + "|All files (*.*)|*.xml";
+            myDialog.InitialDirectory = "C:\\Bonfiglioli4p0";
+            myDialog.Filter = "Image Files(*.*)|*.xml";
+            //myDialog.CheckFileExists = true;
+            myDialog.Multiselect = true;
+
+            if (myDialog.ShowDialog() == true)
+            {
+                lstFiles.Items.Clear();
+                foreach (string file in myDialog.FileNames)
+                {
+                    lstFiles.Items.Add(file);
+                }
+            }
         }
 
 

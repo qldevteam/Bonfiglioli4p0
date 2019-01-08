@@ -1,7 +1,11 @@
-﻿using Bonfiglioli4p0.Utilities;
+﻿using Bonfiglioli4p0;
+using Bonfiglioli4p0.Utilities;
+using Bonfiglioli4p0.ViewModel;
+using nsUtils;
 using qFluid.Utilities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,57 +25,204 @@ namespace Bonfiglioli4p0
     /// </summary>
     public partial class Bonfiglioli4p0Main : Window
     {
+        public static Bonfiglioli4p0Main Self;
+        public static string nrPr;
+        public SerializedData seda = new SerializedData();
+
         public Bonfiglioli4p0Main()
         {
             InitializeComponent();
 
             wpFields.Children.Clear();
-            DeSerializeXAML(wpFields.Children, @"c:\" + "MainGrid.xml");
+            wpFields1.Children.Clear();
+            wpFields2.Children.Clear();
+            Serializer.DeSerializeXAML(wpFields.Children, AppContext.BaseDirectory + "MainGrid.xml");
+            Serializer.DeSerializeXAML(wpFields1.Children, AppContext.BaseDirectory + "MainGrid1.xml");
+            Serializer.DeSerializeXAML(wpFields2.Children, AppContext.BaseDirectory + "MainGrid2.xml");
+
+            Self = this;
+
+            seda = DeSerializeData();
+
+            tbwH00.Text= seda.s00;
+            tbwH200.Text = seda.s01;
+            tbwH400.Text = seda.s02;
+
+            var viewModel = new Bonfiglioli4p0MainMVVM();
+            this.DataContext = viewModel;
+
+            foreach (var item in wpFields.Children)
+            {
+                   if(item is TextBox)
+                {
+                    if (item.ToString()=="")
+                    {
+
+                    }
+                }
+            }
+
+            //Chiusura window in mvvm
+            //http://jkshay.com/closing-a-wpf-window-using-mvvm-and-minimal-code-behind/
+            if (viewModel.CloseAction == null)
+                viewModel.CloseAction = new Action(() => this.Close());
         }
 
-        // Serializes any UIElement object to XAML using a given filename.
-        public static void SerializeToXAML(UIElementCollection elements, string filename)
-        {
-            // Use XamlWriter object to serialize element
-            string strXAML = System.Windows.Markup.XamlWriter.Save(elements);
+        //private void Window_Closed(object sender, EventArgs e)
+        //{
+        //    //TODO da abilitare in definitiva
+        //    if (!App.IsIDE())
+        //    {
+        //        SerializeData();
 
-            // Write XAML to file. Use 'using' so objects are disposed of properly.
-            using (System.IO.FileStream fs = System.IO.File.Create(filename))
+        //        mySer();
+        //    }
+        //    else
+        //    {
+        //        SerializeData();
+        //        //mySer();
+        //    }
+
+        //}
+
+        public void mySer()
+        {
+            try
             {
-                using (System.IO.StreamWriter streamwriter = new System.IO.StreamWriter(fs))
-                {
-                    streamwriter.Write(strXAML);
-                }
+                Serializer.SerializeToXAML(wpFields.Children, AppContext.BaseDirectory + "MainGrid.xml");
+                Serializer.SerializeToXAML(wpFields1.Children, AppContext.BaseDirectory + "MainGrid1.xml");
+                Serializer.SerializeToXAML(wpFields2.Children, AppContext.BaseDirectory + "MainGrid2.xml");
+
+            }
+            catch (Exception)
+            {
+
             }
         }
 
-        public static void DeSerializeXAML(UIElementCollection elements, string filename)
+        public void myDeser(int p_C, string p_file)
         {
-            var context = System.Windows.Markup.XamlReader.GetWpfSchemaContext();
+            int rey = 0;
+            string asas;
 
-            var settings = new System.Xaml.XamlObjectWriterSettings
-            {
-                RootObjectInstance = elements
-            };
+            rey = p_file.LastIndexOf("_");
+            asas = p_file.Substring(rey + 1, 3);
 
-            using (var reader = new System.Xaml.XamlXmlReader(filename))
-            using (var writer = new System.Xaml.XamlObjectWriter(context, settings))
+            if (!int.TryParse(asas, out rey))
             {
-                try
+                return;
+            }
+
+            try
+            {
+                switch (p_C)
                 {
-                    System.Xaml.XamlServices.Transform(reader, writer);
+                    case 0:
+                        wpFields.Children.Clear();
+                        Serializer.DeSerializeXAML(wpFields.Children, p_file);
+
+                        tbwH00.Text = rey.ToString();
+                        break;
+                    case 1:
+                        wpFields1.Children.Clear();
+                        Serializer.DeSerializeXAML(wpFields1.Children, p_file);
+
+                        tbwH200.Text = rey.ToString();
+                        break;
+                    case 2:
+                        wpFields2.Children.Clear();
+                        Serializer.DeSerializeXAML(wpFields2.Children, p_file);
+
+                        tbwH400.Text = rey.ToString();
+                        break;
+                    default:
+                        break;
                 }
-                catch (Exception ee)
-                {
-                    string dd = ee.Message;
-                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        
+        public void mySerMain(int p_N,string path_)
+        {
+            switch (p_N)
+            {
+                case 0:
+                    Serializer.SerializeToXAML(wpFields.Children, path_);
+                    break;
+                case 1:
+                    Serializer.SerializeToXAML(wpFields1.Children, path_);
+                    break;
+                case 2:
+                    Serializer.SerializeToXAML(wpFields2.Children, path_);
+                    break;
+                default:
+                    break;
             }
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        public void mySerMain1(string path_)
         {
-            SerializeToXAML(MainGrid.Children, AppContext.BaseDirectory + "MainGrid.xml");
-
+            Serializer.SerializeToXAML(wpFields1.Children, path_);
         }
+
+        public void mySerMain2(string path_)
+        {
+            Serializer.SerializeToXAML(wpFields2.Children, path_);
+        }
+
+        private void tbwHeader_LostFocus(object sender, RoutedEventArgs e)
+        {
+            seda.s00 = tbwH00.Text;
+            seda.s01 = tbwH200.Text;
+            seda.s02 = tbwH400.Text;
+
+            SerializeData();
+        }
+
+        private SerializedData DeSerializeData()
+        {
+
+            //SerializedData mp = null;
+
+            //string ss = Environment.GetFolderPath(Environment.CurrentDirectory);
+
+            Stream stream = File.Open(Environment.CurrentDirectory + "\\SerialData.osl", FileMode.Open);
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+            SerializedData mp = (SerializedData)bFormatter.Deserialize(stream);
+            stream.Close();
+
+            return mp;
+        }
+
+        private void SerializeData()
+        {
+            //string ss = Environment.GetFolderPath(Environment.CurrentDirectory);
+
+            System.IO.Stream stream = File.Open(Environment.CurrentDirectory + "\\SerialData.osl", FileMode.Create);
+            System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+            bFormatter.Serialize(stream, seda);
+            stream.Close();
+        }
+
+
+
+
+    }
+
+    [Serializable()]
+    public class SerializedData
+    {
+
+        //tbwH00
+        public string s00;
+        //tbwH200
+        public string s01;
+        //tbwH400
+        public string s02;
     }
 }

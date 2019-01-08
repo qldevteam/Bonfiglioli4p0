@@ -104,7 +104,7 @@ namespace qFluid.Cls
 
         private void MyMethod()
         {
-            if(Bonfiglioli4._0.App.IsIDE())     Console.Beep();
+            if(Bonfiglioli4p0.App.IsIDE())     Console.Beep();
 
         }
 

@@ -16,10 +16,6 @@ namespace nsUtils
         //public IQueryable<BarcodeReader.Entity.Pallet> plt;
         public bool bDebug = true;//log errori
         public bool bSim = false;//simulazione dati
-        public static string sCasInPosPLCB0Rbt;
-        public static string sCasInPosPLCB1Rbt;
-        public static string sCasInPosPLCB0Op;
-        public static string sCasInPosPLCB1Op;
 
         internal bool Ping(string p_IP)
         {
@@ -67,6 +63,7 @@ namespace nsUtils
         /// </summary>
         internal void AppExit()
         {
+
             try
             {
                 var exitCode = 0;
@@ -89,6 +86,15 @@ namespace nsUtils
             {
 
             }
+
+            //try
+            //{
+            //    Bonfiglioli4p0.App.Current.Shutdown();
+            //}
+            //catch (Exception)
+            //{
+
+            //}
             return;
         }
 

@@ -111,6 +111,7 @@
     <Compile Include="Utilities\DynamicComparer.cs" />
     <Compile Include="Utilities\ErrComPlcS7.cs" />
     <Compile Include="Utilities\FormSerialisor.cs" />
+    <Compile Include="Utilities\FTPOperation.cs" />
     <Compile Include="Utilities\ICloseable.cs" />
     <Compile Include="Utilities\InLavoroColorConverter.cs" />
     <Compile Include="Utilities\IntColorConverter.cs" />
@@ -125,14 +126,30 @@
     <Compile Include="Utilities\qFluido_Engine.cs" />
     <Compile Include="Utilities\rbUtils.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="Utilities\Serializer.cs" />
     <Compile Include="Utilities\StartupMode.cs" />
     <Compile Include="Utilities\StaticForBinding.cs" />
     <Compile Include="Utilities\TreeHelper.cs" />
     <Compile Include="ViewModel\Base\ViewModelBase.cs" />
-    <Compile Include="ViewModel\Bonfiglioli4p0MWVM.cs" />
+    <Compile Include="ViewModel\Commands\ActionCommand.cs" />
+    <Compile Include="ViewModel\Commands\vcsOpenPrg.cs" />
+    <Compile Include="ViewModel\Commands\vcsCloseApp.cs" />
+    <Compile Include="ViewModel\Commands\vcsInviaFile.cs" />
+    <Compile Include="ViewModel\Commands\vcsCreaFile.cs" />
+    <Compile Include="ViewModel\mySettingsMvvm.cs" />
+    <Compile Include="ViewModel\Bonfiglioli4p0MainMVVM.cs" />
+    <Compile Include="ViewModel\Commands\vcsOpenMySettings.cs" />
     <Compile Include="ViewModel\Commands\cmdChangeCassFinito.cs" />
     <Compile Include="ViewModel\Services\SequencingService.cs" />
+    <Compile Include="ViewModel\VersaSvuotaViewModel.cs" />
+    <Compile Include="ViewModel\VSViewModel.cs" />
+    <Compile Include="View\mySettings.xaml.cs">
+      <DependentUpon>mySettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginWindow.xaml.cs" />
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Bonfiglioli4p0Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,9 +170,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\mySettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +224,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="MyRes\SendFileDati.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\Setting1 groupbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MyRes\LoadPrg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

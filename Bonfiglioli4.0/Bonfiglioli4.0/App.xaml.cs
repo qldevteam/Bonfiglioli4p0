@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Bonfiglioli4._0
+namespace Bonfiglioli4p0
 {
     /// <summary>
     /// Interaction logic for App.xaml

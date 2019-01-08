@@ -1055,7 +1055,7 @@ namespace Utilities
             /// <returns></returns>
             private string ArchiveFilename()
             {
-                return Path.Combine(Bonfiglioli4._0.App.Current.StartupUri.AbsolutePath, "Archived.log");
+                return Path.Combine(Bonfiglioli4p0.App.Current.StartupUri.AbsolutePath, "Archived.log");
             }
 
             /// <summary>

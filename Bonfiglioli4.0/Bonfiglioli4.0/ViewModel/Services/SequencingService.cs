@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace qFluid.ViewModel.Services
+namespace Bonfiglioli4p0.ViewModel.Services
 {
     public static class SequencingService
     {

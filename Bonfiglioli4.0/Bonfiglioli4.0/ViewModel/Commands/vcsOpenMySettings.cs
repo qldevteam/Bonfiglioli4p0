@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace Bonfiglioli4p0.ViewModel.Commands
 {
-    public class cmdChangeCassFinito : ICommand
+    public class vcsOpenMySettings : ICommand
     {
         private Bonfiglioli4p0MainMVVM _viewModel;
 
-        public cmdChangeCassFinito(Bonfiglioli4p0MainMVVM viewModel)
+        public vcsOpenMySettings(Bonfiglioli4p0MainMVVM viewModel)
         {
             _viewModel = viewModel;
         }
@@ -28,14 +28,9 @@ namespace Bonfiglioli4p0.ViewModel.Commands
             return true;
         }
 
-
         public void Execute(object parameter)
         {
-            //    if (App.Usr.bUAdmin)
-            //    {
-            //        int yui = ((qFluid.Entity.StatiLavCluster)parameter).StatiLavClusterID;
-            //        _viewModel.vCmdChangeCassFinito(yui);
-            //    }
+            _viewModel.vcmdOpenMySettings();
         }
     }
 }
