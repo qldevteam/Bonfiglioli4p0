@@ -209,9 +209,10 @@ namespace Bonfiglioli4p0
             stream.Close();
         }
 
-
-
-
+        private void window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 
     [Serializable()]
