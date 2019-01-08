@@ -13,7 +13,6 @@
         ResizeMode="NoResize"  WindowStyle="None" ShowInTaskbar="False"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseLeftButtonDown="window_MouseLeftButtonDown"
     >
     <!--d:DataContext="{d:DesignInstance viewModels:Bonfiglioli4p0MainMVVM}" ShowInTaskbar="False"-->
     <Window.Resources>
@@ -329,7 +328,7 @@
                             <Image Source="/Bonfiglioli4p0;component/myRes/LoadPrg.png"/>
                         </WrapPanel>
                         <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsLoadPrg" Direction="310" ShadowDepth="5" Softness="1" Opacity="0.5" Color="Black" />
+                            <DropShadowBitmapEffect x:Name="dsLoadPrg" Direction="310" ShadowDepth="12" Softness="1" Opacity="0.5" Color="Black" />
                         </Button.BitmapEffect>
                     </Button>
                 </Border>
@@ -343,7 +342,7 @@
                             <Image Source="/Bonfiglioli4p0;component/myRes/CreaFileDati.png"/>
                         </WrapPanel>
                         <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsCreaDati" Direction="310" ShadowDepth="5" Softness="1" Opacity="0.5" Color="Black" />
+                            <DropShadowBitmapEffect x:Name="dsCreaDati" Direction="310" ShadowDepth="12" Softness="1" Opacity="0.5" Color="Black" />
                         </Button.BitmapEffect>
                     </Button>
                 </Border>
@@ -357,63 +356,57 @@
                             <Image Source="/Bonfiglioli4p0;component/myRes/SendFileDati.png"/>
                         </WrapPanel>
                         <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsSendDati" Direction="310" ShadowDepth="5" Softness="1" Opacity="0.5" Color="Black" />
+                            <DropShadowBitmapEffect x:Name="dsSendDati" Direction="310" ShadowDepth="12" Softness="1" Opacity="0.5" Color="Black" />
                         </Button.BitmapEffect>
                     </Button>
                 </Border>
             </WrapPanel>
-            <WrapPanel Height="80" Margin="0,10"  Width="100">
-                <Border>
-                    <Button Height="60" Margin="2,2,2,2"  Width="90" ToolTip="Reset Campi"
+            <WrapPanel Height="80" Margin="0,10"  Width="110">
+                <Button Height="60" Margin="2,2,2,2"  Width="90" ToolTip="Reset Campi"
                     Command="{Binding OpenSvuotamentiEvent}" 
                                         Style="{StaticResource OvalButton}">
-                        <WrapPanel Orientation="Horizontal">
-                            <Image Source="/Bonfiglioli4p0;component/myRes/Reset Data1.png" Margin="0" RenderTransformOrigin="2,0.5"/>
-                        </WrapPanel>
-                        <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsResetDati" Direction="310" ShadowDepth="5" Softness="1" 
+                    <WrapPanel Orientation="Horizontal">
+                        <Image Source="/Bonfiglioli4p0;component/myRes/Reset Data1.png" Margin="0" RenderTransformOrigin="2,0.5"/>
+                    </WrapPanel>
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect x:Name="dsResetDati" Direction="310" ShadowDepth="5" Softness="1" 
                         Opacity="0.5" Color="Black" />
-                        </Button.BitmapEffect>
-                    </Button>
-                </Border>
+                    </Button.BitmapEffect>
+                </Button>
             </WrapPanel>
-            <WrapPanel Height="80" Margin="0,10"  Width="100">
-                <Border>
-                    <Button Height="60" Width="90" ToolTip="Impostazioni"
+            <WrapPanel Height="80" Margin="0,10"  Width="110">
+                <Button Height="60" Width="90" Margin="2,2,2,2" ToolTip="Impostazioni"
                     Command="{Binding cmdOpenMySetting}" 
                                         Style="{StaticResource OvalButton}">
-                        <WrapPanel Orientation="Horizontal">
-                            <Image Source="/Bonfiglioli4p0;component/myRes/Setting1.png"/>
-                            <!--<TextBlock TextWrapping="WrapWithOverflow" Width="8" Height="45"><Run Text="Semi Automatico"/></TextBlock>-->
-                        </WrapPanel>
-                        <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsGestioneCassetti" Direction="310" ShadowDepth="5" Softness="1" Opacity="0.5" Color="Black" />
-                        </Button.BitmapEffect>
+                    <WrapPanel Orientation="Horizontal">
+                        <Image Source="/Bonfiglioli4p0;component/myRes/Setting1.png"/>
+                        <!--<TextBlock TextWrapping="WrapWithOverflow" Width="8" Height="45"><Run Text="Semi Automatico"/></TextBlock>-->
+                    </WrapPanel>
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect x:Name="dsGestioneCassetti" Direction="310" ShadowDepth="25" Softness="1" Opacity="0.5" Color="Black" />
+                    </Button.BitmapEffect>
 
-                    </Button>
-                </Border>
+                </Button>
             </WrapPanel>
-            <WrapPanel Height="80" Margin="0,10"  Width="100">
-                <Border>
-                    <Button Height="60" Width="90" ToolTip="Esci"
+            <WrapPanel Height="80" Margin="0,10"  Width="110">
+                <Button Height="60" Width="90" Margin="2,2,2,2" ToolTip="Esci"
                     Command="{Binding cmdCloseApp}" 
                                         Style="{StaticResource OvalButton}">
-                        <WrapPanel Orientation="Horizontal">
-                            <Image Source="/Bonfiglioli4p0;component/myRes/Stop.png"/>
-                            <!--<TextBlock TextWrapping="WrapWithOverflow" Width="8" Height="45"><Run Text="Semi Automatico"/></TextBlock>-->
-                        </WrapPanel>
-                        <Button.BitmapEffect>
-                            <DropShadowBitmapEffect x:Name="dsEnd" Direction="310" ShadowDepth="5" Softness="1" Opacity="0.5" Color="Black" />
-                        </Button.BitmapEffect>
+                    <WrapPanel Orientation="Horizontal">
+                        <Image Source="/Bonfiglioli4p0;component/myRes/Stop.png"/>
+                        <!--<TextBlock TextWrapping="WrapWithOverflow" Width="8" Height="45"><Run Text="Semi Automatico"/></TextBlock>-->
+                    </WrapPanel>
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect x:Name="dsEnd" Direction="310" ShadowDepth="25" Softness="1" Opacity="0.5" Color="Black" />
+                    </Button.BitmapEffect>
 
-                    </Button>
-                </Border>
+                </Button>
             </WrapPanel>
         </StackPanel>
 
         <StackPanel Background="Yellow"    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5.6,0.4,6.4">
             <Label>Note</Label>
-            <TextBox Height="60" MaxLines="3"  TextWrapping="Wrap">Aggiornare prog. 2</TextBox>
+            <TextBox Height="60" MaxLines="3"  TextWrapping="Wrap">Aggiornare prog. 2 </TextBox>
         </StackPanel>
     </Grid>
 </Window>
