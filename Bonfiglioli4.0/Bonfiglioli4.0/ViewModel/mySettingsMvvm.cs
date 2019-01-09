@@ -8,7 +8,7 @@
 //using Bonfiglioli4p0.ViewModel.Commands;
 //using Bonfiglioli4p0.ViewModel.Services;
 using Bonfiglioli4p0.Utilities;
-using Bonfiglioli4p0.ViewModel.Base;
+//using Bonfiglioli4p0.ViewModel.Base;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -65,7 +65,7 @@ namespace Bonfiglioli4p0
         fReal = 5,
     }
 
-    public sealed class mySettingsMvvm : ViewModelBase
+    public sealed class mySettingsMvvm : PadProgram4p0.ViewModel.Base.ViewModelBase
     {
         #region PRIVATE
 

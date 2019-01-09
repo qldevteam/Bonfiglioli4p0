@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bonfiglioli4.0", "Bonfiglioli4.0\Bonfiglioli4.0.csproj", "{6B93B51C-A28B-44A5-808F-36E2950DD41A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PadProgram4p0", "Bonfiglioli4.0\PadProgram4p0.csproj", "{6B93B51C-A28B-44A5-808F-36E2950DD41A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupBonfiglioli4p0", "SetupBonfiglioli4p0\SetupBonfiglioli4p0.vdproj", "{8C093977-34C5-4EFF-9575-833D7D02DEC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{6B93B51C-A28B-44A5-808F-36E2950DD41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B93B51C-A28B-44A5-808F-36E2950DD41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B93B51C-A28B-44A5-808F-36E2950DD41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C093977-34C5-4EFF-9575-833D7D02DEC5}.Debug|Any CPU.ActiveCfg = Debug
+		{8C093977-34C5-4EFF-9575-833D7D02DEC5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

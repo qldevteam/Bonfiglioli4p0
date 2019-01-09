@@ -3,7 +3,7 @@ using Bonfiglioli4p0.DialogControls;
 //using Bonfiglioli4p0.Entity;
 using Bonfiglioli4p0.Utilities;
 using Bonfiglioli4p0.View;
-using Bonfiglioli4p0.ViewModel.Base;
+//using Bonfiglioli4p0.ViewModel.Base;
 using Bonfiglioli4p0.ViewModel.Commands;
 //using Bonfiglioli4p0.ViewModel.MediatorMVVM;
 using System;

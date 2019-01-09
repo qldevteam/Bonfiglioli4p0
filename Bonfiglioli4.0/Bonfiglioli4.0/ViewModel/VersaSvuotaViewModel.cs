@@ -7,7 +7,7 @@
 //using Bonfiglioli4p0.Entity;
 using Bonfiglioli4p0.ViewModel.Services;
 using Bonfiglioli4p0.Utilities;
-using Bonfiglioli4p0.ViewModel.Base;
+//using Bonfiglioli4p0.ViewModel.Base;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ using Bonfiglioli4p0.DialogControls;
 
 namespace Bonfiglioli4p0.ViewModel
 {
-    public abstract class VersaSvuotaViewModel : ViewModelBase
+    public abstract class VersaSvuotaViewModel : PadProgram4p0.ViewModel.Base.ViewModelBase
     {
         #region Fields
 
@@ -386,7 +386,7 @@ internal class clsReqCicloChiudi
         }
     }
 
-    public class DrawerSchema : ViewModelBase, ISequencedObject
+    public class DrawerSchema : PadProgram4p0.ViewModel.Base.ViewModelBase, ISequencedObject
     {
 
         public void AddPoint()

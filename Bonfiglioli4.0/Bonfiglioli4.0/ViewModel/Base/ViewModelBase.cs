@@ -1,4 +1,4 @@
-﻿using Bonfiglioli4p0.Utilities;
+﻿using PadProgram4p0.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bonfiglioli4p0.ViewModel.Base
+namespace PadProgram4p0.ViewModel.Base
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

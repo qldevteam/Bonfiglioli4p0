@@ -5,10 +5,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 //using Bonfiglioli4p0.Entity;
-//using Bonfiglioli4p0.ViewModel.Commands;
-//using Bonfiglioli4p0.ViewModel.Services;
-using Bonfiglioli4p0.Utilities;
-//using Bonfiglioli4p0.ViewModel.Base;
+//using PadProgram4p0.ViewModel.Commands;
+//using PadProgram4p0.ViewModel.Services;
+using PadProgram4p0.Utilities;
+using PadProgram4p0.ViewModel.Base;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -21,19 +21,19 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Threading;
 //using qFluid.ViewModel.MediatorMVVM;
-//using Bonfiglioli4p0.ViewModel.Commands;
+//using PadProgram4p0.ViewModel.Commands;
 //using qFluid.Properties;
-using Bonfiglioli4p0.View;
+using PadProgram4p0.View;
 using System.Windows;
 using nsUtils;
 using System.Text;
-using Bonfiglioli4p0.ViewModel.Commands;
+using PadProgram4p0.ViewModel.Commands;
 using System.IO;
 using System.Xml;
 using System.Windows.Controls;
 using Microsoft.Win32;
 
-namespace Bonfiglioli4p0.ViewModel
+namespace PadProgram4p0.ViewModel
 {
     public enum cpSequence
     {
@@ -69,7 +69,7 @@ namespace Bonfiglioli4p0.ViewModel
         fReal = 5,
     }
 
-    public sealed class Bonfiglioli4p0MainMVVM : PadProgram4p0.ViewModel.Base.ViewModelBase
+    public sealed class PadProgram4p0MainMVVM : ViewModelBase
     {
         #region PRIVATE
         private int selectedIndex; // Set the field to whichever tab you want to start on
@@ -169,7 +169,7 @@ namespace Bonfiglioli4p0.ViewModel
 
 
         #region COSTRUCTOR
-        public Bonfiglioli4p0MainMVVM()
+        public PadProgram4p0MainMVVM()
         {
             mys = new mySettings();
 
@@ -194,7 +194,7 @@ namespace Bonfiglioli4p0.ViewModel
 
         public void vcmdCreaFile()
         {
-            Bonfiglioli4p0Main.Self.mySer();
+            PadProgram4p0Main.Self.mySer();
 
             xhtt = new List<valori>();
             zhtt = new List<valori>();
@@ -317,7 +317,7 @@ namespace Bonfiglioli4p0.ViewModel
                     case "C3147":
                         txtrPrgFolde = "tb4";
                         sch = 0;
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH00.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH00.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -325,7 +325,7 @@ namespace Bonfiglioli4p0.ViewModel
                     case "C3148":
                         txtrPrgFolde = "tb204";
                         sch = 1;
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH200.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH200.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -333,7 +333,7 @@ namespace Bonfiglioli4p0.ViewModel
                     case "C3149":
                         txtrPrgFolde = "tb404";
                         sch = 2;
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH400.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH400.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -343,7 +343,7 @@ namespace Bonfiglioli4p0.ViewModel
                         break;
                 }
 
-                Bonfiglioli4p0Main.Self.mySerMain(sch,SearchSettingsFields(sedIt, txtrPrgFolde) + "" + sedIt + "_Prg_" + kkk.ToString("000") + ".xml");
+                PadProgram4p0Main.Self.mySerMain(sch,SearchSettingsFields(sedIt, txtrPrgFolde) + "" + sedIt + "_Prg_" + kkk.ToString("000") + ".xml");
             }
             catch (Exception ee)
             {
@@ -417,7 +417,7 @@ namespace Bonfiglioli4p0.ViewModel
 
         internal void vcmdCloseApp()
         {
-            Bonfiglioli4p0Main.Self.mySer();
+            PadProgram4p0Main.Self.mySer();
 
             rbu.AppExit();
         }
@@ -442,7 +442,7 @@ namespace Bonfiglioli4p0.ViewModel
                         txtPsw = "2";
                         txtFtpFolder = "3";
                         txtLocFolder = "4";
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH00.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH00.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -453,7 +453,7 @@ namespace Bonfiglioli4p0.ViewModel
                         txtPsw = "202";
                         txtFtpFolder = "203";
                         txtLocFolder = "204";
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH200.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH200.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -464,7 +464,7 @@ namespace Bonfiglioli4p0.ViewModel
                         txtPsw = "402";
                         txtFtpFolder = "403";
                         txtLocFolder = "404";
-                        if (!int.TryParse(Bonfiglioli4p0Main.Self.tbwH400.Text, out kkk))
+                        if (!int.TryParse(PadProgram4p0Main.Self.tbwH400.Text, out kkk))
                         {
                             throw new System.ArgumentException("Programma pezzo non valido", "Prg");
                         }
@@ -641,13 +641,13 @@ namespace Bonfiglioli4p0.ViewModel
                 switch (sedIt)
                 {
                     case "C3147":
-                        Bonfiglioli4p0Main.Self.myDeser(0, myDialog.FileName);
+                        PadProgram4p0Main.Self.myDeser(0, myDialog.FileName);
                         break;
                     case "C3148":
-                        Bonfiglioli4p0Main.Self.myDeser(1, myDialog.FileName);
+                        PadProgram4p0Main.Self.myDeser(1, myDialog.FileName);
                         break;
                     case "C3149":
-                        Bonfiglioli4p0Main.Self.myDeser(2, myDialog.FileName);
+                        PadProgram4p0Main.Self.myDeser(2, myDialog.FileName);
                         break;
                     default:
                         break;
